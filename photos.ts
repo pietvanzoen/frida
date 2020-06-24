@@ -10,7 +10,7 @@ import { ensureDir, existsSync, copy } from "https://deno.land/std/fs/mod.ts";
 await initializeImageMagick(); // make sure to initialize first!
 
 const DIST = "./dist";
-const CACHE = './.cache';
+const CACHE = "./.cache";
 
 export async function buildOptimizedPhoto(path: string) {
   const destFile = resolve(DIST, path);
