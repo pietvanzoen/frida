@@ -2,7 +2,7 @@ import {
   formatDuration,
   intervalToDuration,
 } from "https://deno.land/x/date_fns/index.js";
-import { buildOptimizedPhoto } from './photos.ts';
+import { buildOptimizedPhoto } from "./photos.ts";
 import { Template } from "https://deno.land/x/tiny_templates/mod.ts";
 
 const DOB = new Date(2020, 3, 17);
@@ -40,4 +40,4 @@ console.log(indexTemplate.render({
   body: photos.join("\n"),
 }));
 
-console.error('==> Build complete');
+console.error("==> Build complete");
