@@ -32,7 +32,6 @@ for await (const { name } of files) {
       { format: ["months", "weeks", "days"] },
     ),
   }));
-  console.error(`==> Optimizing ${path}`);
   await buildOptimizedPhoto(path);
 }
 

@@ -12,6 +12,7 @@ script:
 cache:
   directories:
     - "$HOME/.deno"
+    - .cache
 
 deploy:
   provider: pages

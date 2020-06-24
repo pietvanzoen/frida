@@ -14,6 +14,9 @@ test:
 fmt:
 	deno fmt
 
+clear-cache:
+	rm -rvf .cache
+
 build:
 	rm -rf dist
 	mkdir -p dist
