@@ -12,7 +12,7 @@ script:
 cache:
   directories:
     - "$HOME/.deno"
-    - .deno_dir
+    - $DENO_DIR
     - .cache
 
 deploy:
