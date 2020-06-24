@@ -12,6 +12,7 @@ script:
 cache:
   directories:
     - "$HOME/.deno"
+    - .deno_dir
     - .cache
 
 deploy:
@@ -25,4 +26,5 @@ deploy:
 
 env:
   global:
+    DENO_DIR: ./deno_dir
     secure: aw8+c1yUn/1EooKxZKMd1SDHT27m6MZ3RLld6TQoxFfc1t7oInRWjRi5u4+VyrmQUsD3NTQjyz3vHs66azS7WiiiG0GI5Wz/50z4eNhWCLAcWAvxH2w3Y3I2uevzPj+aLpaFX8YGefsrTkC5sqQ4JBUBYOWlvOMePhlG21O0bAmmfosf00wzSNMXsZUmRpc1JN48UIILlAP8xpgwXBmTZe9+AH6ho8cjPLnmbonwXn5xgaulupMo7ua8sra53/1+oqQx7Te6bM4Kt0xbY5dsqM5yHLOxESpK/iKN6TnSHwY7la8n4/rgHh3vUO2hKmwDDUd4P7BrvhkYbWnmg2msZCikq0x0pCy0MyAdOX41Zb4eb4pyYcQ3YUit3y1DCFm+SLxvmoL/UfUfACHXRGPv6ctOkGBx8MZbGcXgiLZbte9NDk5jSB1mRhZB6LvqMvTaSVgXRRNxWZIZg6AItr0Irul11D4BCOcdj47A56o4dlw3jeUnab8PcLNfi/4hK9RLq7HLPKWiIctlF2nSpiHWCgnvp5O8FGeG8nuSr2xryC3zpbw2eNykguqib8YqPrx+uFGbv3/MvStubu3+mEC7nLz6KRL1R4ikOUpYJQ/UkCY6W87MLqMlK5ylCe6hYYnyUTphgzmilaJofV0RyRT41xJ6VCC8yz1QTgNUxy5fjPc=
