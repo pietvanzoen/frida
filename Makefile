@@ -5,7 +5,7 @@ bootstrap:
 	./scripts/bootstrap
 
 install:
-	deno cache build.ts
+	deno cache --unstable build.ts
 
 test:
 	# deno test --reload --allow-env --allow-read
@@ -17,8 +17,7 @@ fmt:
 build:
 	rm -rf dist
 	mkdir -p dist
-	deno run --allow-read build.ts > dist/index.html
-	cp -r photos dist/photos
+	deno run --unstable --allow-read --allow-write build.ts > dist/index.html
 
 
 .PHONY: test fmt install
