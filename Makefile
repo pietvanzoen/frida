@@ -1,11 +1,14 @@
 
-all: fmt test
+all: install build
+
+bootstrap:
+	./scripts/bootstrap
 
 install:
-	curl -fsSL https://deno.land/x/install/install.sh | sh
+	deno cache build.ts
 
 test:
-	deno test --reload --allow-env --allow-read
+	# deno test --reload --allow-env --allow-read
 	deno fmt --check
 
 fmt:

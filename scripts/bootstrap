@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+if [[ -z "$(which deno)" ]]; then
+  echo "==> installing deno"
+  curl -fsSL https://deno.land/x/install/install.sh | sh
+else
+  echo "Deno already installed"
+fi
