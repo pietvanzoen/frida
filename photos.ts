@@ -1,4 +1,8 @@
 import {
+  parse,
+  isValid,
+} from "https://deno.land/x/date_fns/index.js";
+import {
   initializeImageMagick,
   ImageMagick,
   MagickImage,
@@ -7,12 +11,19 @@ import {
 import { resolve, dirname } from "https://deno.land/std/path/mod.ts";
 import { ensureDir, existsSync, copy } from "https://deno.land/std/fs/mod.ts";
 
-await initializeImageMagick(); // make sure to initialize first!
+import exifer from "https://cdn.pika.dev/exifer@^1.0.0-beta.2";
+import Buffer from "https://deno.land/std/node/buffer.ts";
+
+let magicInitialized = false; // make sure to initialize first!
 
 const DIST = "./dist";
 const CACHE = "./.cache";
 
 export async function buildOptimizedPhoto(path: string) {
+  if (!magicInitialized) {
+    await initializeImageMagick();
+    magicInitialized = true;
+  }
   const destFile = resolve(DIST, path);
   const cacheFile = resolve(CACHE, path);
   await ensureDir(dirname(cacheFile));
@@ -33,4 +44,13 @@ export async function buildOptimizedPhoto(path: string) {
       await copy(cacheFile, destFile);
     }, MagickFormat.Jpeg);
   });
+}
+
+export async function getExifDate(path: string) {
+  const data = await exifer(Buffer.from(await Deno.readFile(path)));
+  const date = parse(data.ModifyDate, "yyyy:MM:dd kk:mm:ss", new Date());
+  if (!isValid(date)) {
+    throw new Error("could not parse exif ModifyDate");
+  }
+  return date;
 }
