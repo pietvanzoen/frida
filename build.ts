@@ -1,6 +1,7 @@
 import {
   formatDuration,
   intervalToDuration,
+  isAfter,
 } from "https://deno.land/x/date_fns/index.js";
 import { buildOptimizedPhoto, getExifDate } from "./photos.ts";
 import { Template } from "https://deno.land/x/tiny_templates/mod.ts";
@@ -19,7 +20,7 @@ const files = await Deno.readDir("./photos");
 const photos = [];
 for await (const { name } of files) {
   const path = "./photos/" + name;
-  console.error(`==> Building ${path}`);
+  console.error(`Building ${path}`);
   let createdAt: Date | null;
   try {
     createdAt = await getExifDate(path);
@@ -41,10 +42,11 @@ for await (const { name } of files) {
   await buildOptimizedPhoto(path);
 }
 
-console.error(JSON.stringify(photos, null, 2));
-
 console.log(indexTemplate.render({
-  body: photos.map((p) => photoTemplate.render(p)).join("\n"),
+  body: photos
+    .sort((a, b) => isAfter(b.createdAt, a.createdAt) ? 1 : -1)
+    .map((p) => photoTemplate.render(p))
+    .join("\n"),
 }));
 
 console.error("==> Build complete");

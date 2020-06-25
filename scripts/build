@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+echo "==> Cleaning dist"
+rm -rf dist
+mkdir -p dist
+
+echo "==> Copying static assests"
+cp -rv static/* dist
+
+echo "==> Building"
+deno run --unstable --allow-read --allow-write build.ts > dist/index.html

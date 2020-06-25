@@ -1,20 +1,16 @@
 language: generic
-
 install:
   - make bootstrap
   - export DENO_INSTALL="$HOME/.deno"
   - export PATH="$DENO_INSTALL/bin:$PATH"
   - deno --version
-
 script:
   - make
-
 cache:
   directories:
     - "$HOME/.deno"
-    - ${DENO_DIR}
-    - .cache
-
+    - "${DENO_DIR}"
+    - ".cache"
 deploy:
   provider: pages
   local_dir: dist
@@ -23,8 +19,8 @@ deploy:
   keep_history: true
   on:
     branch: main
-
 env:
   global:
-    - "DENO_DIR=./deno_dir"
+    - DENO_DIR=./deno_dir
     - secure: aw8+c1yUn/1EooKxZKMd1SDHT27m6MZ3RLld6TQoxFfc1t7oInRWjRi5u4+VyrmQUsD3NTQjyz3vHs66azS7WiiiG0GI5Wz/50z4eNhWCLAcWAvxH2w3Y3I2uevzPj+aLpaFX8YGefsrTkC5sqQ4JBUBYOWlvOMePhlG21O0bAmmfosf00wzSNMXsZUmRpc1JN48UIILlAP8xpgwXBmTZe9+AH6ho8cjPLnmbonwXn5xgaulupMo7ua8sra53/1+oqQx7Te6bM4Kt0xbY5dsqM5yHLOxESpK/iKN6TnSHwY7la8n4/rgHh3vUO2hKmwDDUd4P7BrvhkYbWnmg2msZCikq0x0pCy0MyAdOX41Zb4eb4pyYcQ3YUit3y1DCFm+SLxvmoL/UfUfACHXRGPv6ctOkGBx8MZbGcXgiLZbte9NDk5jSB1mRhZB6LvqMvTaSVgXRRNxWZIZg6AItr0Irul11D4BCOcdj47A56o4dlw3jeUnab8PcLNfi/4hK9RLq7HLPKWiIctlF2nSpiHWCgnvp5O8FGeG8nuSr2xryC3zpbw2eNykguqib8YqPrx+uFGbv3/MvStubu3+mEC7nLz6KRL1R4ikOUpYJQ/UkCY6W87MLqMlK5ylCe6hYYnyUTphgzmilaJofV0RyRT41xJ6VCC8yz1QTgNUxy5fjPc=
+    - secure: tsQmfu5Y+CIeMf8XvAQ31kV3wxL9dylVhmJ/KaoKet0wwx5I1wtRtkM4tQxwsYXal8c/9E4slIdDhwsNpwr6vFP5lLomAp61wbIw56GAoW1vYCClKsL9gN7mxIu4FyuGsAakq9+Ru9RsSyOQ18uNYCCjwn8dFkQ9Lv3CNOLDDxo1Wxr0wWctQT+cf7bmDk6ledNp/QrbvI3QHT2INO0bZRV0KjkDd29/cZ1pxOcNpu/vzMxf8DnwkFHnWGRd5aLADY9L7oJMn07j+dhEbPy9KaLkAggaPKg7U0e+qvvWrjY3NcMCO4gCis0mYMgCnj41m7svyeyZ6uLskjk31njo3uM9E+5Ppe+qNcrTM0Jg7dZqiBNbrYL7KtANwTCDMBavIaMd08F9tUKfl8ACRHOq1B4nKf29vaU4kzcSE1lteqKiZzUZQpZBovaaE8Ld2n2qxUdsfYendPkFYOkRad5Mg/09CgniOKNK3xU4/g0DFXom6gKhHAvjn830eGG7x435yx7CKReTU7RCh33BQQ68DUt3y5tDO5UC0EjZhOtsPo91BKONBMwP7lG6zqN2zugyGC2SvFEMEz6qv98cHAP+t2sQ/Kdilvk9pTJ6aAEpG2KVGyAXHHR54UVREdMnecwQrq3OVpiCipPisrvPK9nQ7gju3+sAB+L/sbuW/URtV6E=

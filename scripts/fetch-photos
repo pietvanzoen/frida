@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+if [ -d "./photos" ]; then
+  echo "Warning: ./photos already exists. Clear photos directory and run again to refresh.";
+  exit;
+fi
+
+rm -f photos.zip
+
+curl -X POST --output photos.zip https://content.dropboxapi.com/2/files/download_zip \
+  --header "Authorization: Bearer $DROPBOX_TOKEN" \
+  --header "Dropbox-API-Arg: {\"path\": \"/photos\"}"
+
+unzip photos.zip -d ./

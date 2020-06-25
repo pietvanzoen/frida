@@ -1,4 +1,4 @@
-all: install build
+all: install fetch-photos build
 
 bootstrap:
 	./scripts/bootstrap
@@ -17,12 +17,12 @@ clear-cache:
 	rm -rvf .cache
 
 build:
-	rm -rf dist
-	mkdir -p dist
-	cp -rv static/* dist
-	deno run --unstable --allow-read --allow-write build.ts > dist/index.html
+	./scripts/build
 
-serve: build
+fetch-photos:
+	./scripts/fetch-photos
+
+serve: fetch-photos build
 	deno run --allow-net --allow-read https://deno.land/std/http/file_server.ts dist
 
 .PHONY: test fmt install
