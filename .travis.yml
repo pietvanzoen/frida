@@ -1,6 +1,6 @@
 language: generic
 install:
-  - apt-get install jpegoptim
+  - sudo apt-get -y install jpegoptim
   - jpegoptim --version
   - make bootstrap
   - export DENO_INSTALL="$HOME/.deno"
