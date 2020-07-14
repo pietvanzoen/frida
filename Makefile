@@ -1,3 +1,6 @@
+DENO_DIR=./.deno_dir
+export DENO_DIR
+
 all: install fetch-photos build
 
 bootstrap:
@@ -13,8 +16,10 @@ test:
 fmt:
 	deno fmt
 
-clear-cache:
-	rm -rvf .cache
+clean:
+	rm -rf .cache
+	rm -rf dist
+	rm -rf ${DENO_DIR}
 
 build:
 	./scripts/build

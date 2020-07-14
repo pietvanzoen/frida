@@ -6,5 +6,6 @@ if [[ -z "$(which deno)" ]]; then
   echo "==> installing deno"
   curl -fsSL https://deno.land/x/install/install.sh | sh
 else
-  echo "Deno already installed"
+  echo "==> Deno already installed. Upgrading..."
+  deno upgrade
 fi
