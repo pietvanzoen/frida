@@ -4,7 +4,7 @@ import {
   isAfter,
 } from "https://deno.land/x/date_fns/index.js";
 import { buildOptimizedPhoto, getExifDate } from "./photos.ts";
-import { Template } from "https://deno.land/x/tiny_templates/mod.ts";
+import { Template } from "https://raw.githubusercontent.com/zekth/deno_tiny_templates/master/mod.ts";
 
 const DOB = new Date(2020, 3, 17);
 const decoder = new TextDecoder("utf-8");
