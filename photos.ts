@@ -7,7 +7,7 @@ import {
   ImageMagick,
   MagickImage,
   MagickFormat,
-} from "https://deno.land/x/deno_imagemagick/mod.ts";
+} from "https://raw.githubusercontent.com/leonelv/deno-imagemagick/master/mod.ts";
 import { resolve, dirname } from "https://deno.land/std/path/mod.ts";
 import { ensureDir, existsSync, copy } from "https://deno.land/std/fs/mod.ts";
 
