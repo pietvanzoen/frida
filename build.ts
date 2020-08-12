@@ -6,7 +6,7 @@ import {
 import { buildOptimizedPhoto, getExifDate } from "./photos.ts";
 import { Template } from "https://raw.githubusercontent.com/zekth/deno_tiny_templates/master/mod.ts";
 
-const DOB = new Date(2020, 3, 17);
+const DOB = new Date(2020, 3, 31);
 const decoder = new TextDecoder("utf-8");
 
 const indexTemplate = new Template(
