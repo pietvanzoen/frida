@@ -47,7 +47,7 @@ export async function buildOptimizedPhoto(path: string) {
 }
 
 export async function getExifDate(path: string) {
-  const data = await exifer(Buffer.from(await Deno.readFile(path)));
+  const data = await exifer(await Deno.readFile(path));
   const date = parse(data.ModifyDate, "yyyy:MM:dd kk:mm:ss", new Date());
   if (!isValid(date)) {
     throw new Error("could not parse exif ModifyDate");
